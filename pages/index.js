@@ -4,10 +4,7 @@ import Navbar from './components/Navbar';
 import Introduction from './components/Introduction';
 const Home = () => {
   return (
-    <Box className='app'  >
-      <Navbar />
       <Introduction />
-    </Box>
   );
 };
 
