@@ -1,25 +1,53 @@
-import { Box,HStack, Image, Link } from "@chakra-ui/react";
+import { Box, HStack, Image, Link } from "@chakra-ui/react";
 import React from "react";
 
 function Navbar() {
   return (
-    <HStack  justify="space-between"  bg={"white"}  w="100vw" p={["0","15px","15px"]} pl={["0","40","40"]} boxShadow="1px 1px 1px 1px grey" >
-      <Image  src="https://nftlaunchkit.xyz/logo.svg" width={"25"} height="8" />
-      <HStack display={["none","none","flex"]} spacing="10" fontSize={"12px"} fontWeight="620" justify="center" w="40vw">
-        <Link href="/">Home</Link>
-        <Link href="/">Explore</Link>
-        <Link href="/">Pricing</Link>
-        <Link href="/">Membership</Link>
-        <Link href="/">StartBuilding</Link>
+    <Box position={"fixed"} p={["0", "10px", "10px"]} bg={"white"}  boxShadow="1px 1px 1px 1px grey" w="100%">
+      <HStack  justify="space-between" w={["100%","98%","80vw"]}>
+        <Image
+          pl={["10", "0", "20"]}
+          src="https://nftlaunchkit.xyz/logo.svg"
+          width={"25"}
+          height="8"
+          objectFit={"contain"}
+        />
 
+        <HStack
+          display={["none", "none", "flex"]}
+          spacing="10"
+          fontSize={"14px"}
+          fontWeight="620"
+          justify="center"
+        >
+          <NavLink title="Home" link={"/"} />
+          <NavLink title="Explore" link={"/"} />
+          <NavLink title="Pricing" link={"/"} />
+          <NavLink title="Membership" link={"/"} />
+          <NavLink title="StartBuilding" link={"/"} />
+          
+        </HStack>
+
+        <Box>
+          <Link href="/">
+            <Image
+              display={["flex", "flex", "none"]}
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/240px-Hamburger_icon.svg.png"
+              width={"25"}
+              height="8"
+            />
+          </Link>
+        </Box>
       </HStack>
-      <Box>
-      <Image display={["flex","none","none"]}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/240px-Hamburger_icon.svg.png" width={"25"} height="8" />
-
-      </Box>
-
-    </HStack>
+    </Box>
   );
+}
+
+const NavLink = ({title,link})=>{
+    return (
+        <Link _hover={{textDecoration:"none"}} href={link}>{title}</Link>
+
+    )
 }
 
 export default Navbar;
