@@ -6,6 +6,23 @@ import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
+
+/**
+ *  We will be using Following things for our  task
+ *
+ * Next JS - for setting up entire app
+ * Wagmi / Rainbow Wallet -  Connecting the Different Wallets
+ * Chakra UI - Using Clean Composeable React Components to keep code Clean
+ * Open Sea API - Fetching BAYC Collection
+ *
+ */
+
+/**
+ *   Wagmi and Rainbow Wallet Connection Setup things Boilerplate
+ *
+ *        STARTED
+ */
+
 const { chains, provider } = configureChains(
   [chain.mainnet],
   [
@@ -25,13 +42,25 @@ const wagmiClient = createClient({
   provider,
 });
 
+/**
+ *   Wagmi and Rainbow Wallet Connection Setup things Boilerplate
+ *
+ *        Ended
+ */
+
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
+          {/*Wrapping Each Component inside Chakra , Wagmi and Rainbow Toolki to Access their Features  */}
+
           <Navbar />
-            <Component {...pageProps} />
+          {/* We Wanted to Show Navbar On Each Route of the Navbar */}
+
+          <Component {...pageProps} />
+          {/* Showing Each Component with Above Line */}
+          
         </RainbowKitProvider>
       </WagmiConfig>
     </ChakraProvider>
