@@ -1,10 +1,17 @@
-import { Box, HStack, Image, Link } from "@chakra-ui/react";
+import { Box, HStack, Image } from "@chakra-ui/react";
 import React from "react";
-
+import Link from "next/link";
+import Head from "next/head";
 function Navbar() {
   return (
+    <>
+    <Head>
+    <title>NFT Launch Kit</title>
+
+    </Head>
     <Box position={"fixed"} p={["0", "10px", "10px"]} bg={"white"}  boxShadow="1px 1px 1px 1px grey" w="100%">
       <HStack  justify="space-between" w={["100%","98%","80vw"]}>
+        <a href="/">
         <Image
           pl={["10", "0", "20"]}
           src="https://nftlaunchkit.xyz/logo.svg"
@@ -12,6 +19,8 @@ function Navbar() {
           height="8"
           objectFit={"contain"}
         />
+
+        </a>
 
         <HStack
           display={["none", "none", "flex"]}
@@ -24,7 +33,7 @@ function Navbar() {
           <NavLink title="Explore" link={"/"} />
           <NavLink title="Pricing" link={"/"} />
           <NavLink title="Membership" link={"/"} />
-          <NavLink title="StartBuilding" link={"/"} />
+          <NavLink title="StartBuilding" link={"/dashboard"} />
           
         </HStack>
 
@@ -40,12 +49,16 @@ function Navbar() {
         </Box>
       </HStack>
     </Box>
+    </>
+    
   );
 }
 
 const NavLink = ({title,link})=>{
     return (
-        <Link _hover={{textDecoration:"none"}} href={link}>{title}</Link>
+        <Box _hover={{textDecoration:"none"}}>
+        <Link href={link}>{title}</Link>
+        </Box>
 
     )
 }
