@@ -1,18 +1,33 @@
 import { Box, Text, ButtonGroup, Button } from "@chakra-ui/react";
 import React from "react";
 
+// This is a simple Component that shows the Tagline and Purpose of the website
+
 function Introduction() {
+  /**
+   *      How It Works ?
+   *
+   *      A Fadded ( Linear Graident ) Background Image
+   *      Tagline
+   *      Description of NFTLaunchKit
+   *      Button to Start Building Stuff
+   */
+
   return (
     <Box
       width={"100%"}
       height="100vh"
       p="40"
+      /*
+       *  Background Image
+       */
       backgroundImage={`linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.7)),
     url('intro_bg.jpg');`}
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat={"no-repeat"}
     >
+      {/* Tagline */}
       <Text
         bgGradient="linear(to-r,#84e1bc, #1652f0)"
         bgClip="text"
@@ -23,6 +38,9 @@ function Introduction() {
       >
         The best solution for no-code web3 apps.
       </Text>
+
+      {/* Description */}
+
       <Text
         pt="1rem"
         color="white"
@@ -36,6 +54,7 @@ function Introduction() {
         with our templates and manage everything from the dashboard. Without any
         code and for free.
       </Text>
+
       <Text
         pt="1rem"
         color="white"
@@ -46,14 +65,12 @@ function Introduction() {
       >
         Build. Design. Launch
       </Text>
-      <ButtonGroup
-        mt="4"
-        variant="solid"
-        spacing="5"
-      >
+
+      {/* Button To Navigate to Dashboard */}
+
+      <ButtonGroup mt="4" variant="solid" spacing="5">
         <Button>Start Building</Button>
       </ButtonGroup>
-      
     </Box>
   );
 }
