@@ -80,16 +80,16 @@ function Navbar() {
           </HStack>
 
 {/* Dummy responsive Hamburger Menu */}
-          <Box>
+          <Box p="2px" borderRadius={"10px"} _hover={{backgroundColor:"#DEDEDE",cursor:"pointer"}}>
             <Link href="/">
               <Image
                 display={["flex", "flex", "none"]}
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/240px-Hamburger_icon.svg.png"
-                width={"25"}
-                height="8"
+                width={"6"}
+                height="6"
               />
             </Link>
-            
+
           </Box>
         </HStack>
       </Box>
