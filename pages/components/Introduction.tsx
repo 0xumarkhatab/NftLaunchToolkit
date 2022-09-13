@@ -2,7 +2,7 @@ import { Box, Text, ButtonGroup, Button } from "@chakra-ui/react";
 import React from "react";
 
 // This is a simple Component that shows the Tagline and Purpose of the website
-
+import Link from "next/link";
 function Introduction() {
   /**
    *      How It Works ?
@@ -69,8 +69,11 @@ function Introduction() {
       {/* Button To Navigate to Dashboard */}
 
       <ButtonGroup mt="4" variant="solid" spacing="5">
+        <Link href="/dashboard">
         <Button>Start Building</Button>
+        </Link>
       </ButtonGroup>
+
     </Box>
   );
 }
