@@ -1,11 +1,13 @@
-import { Box, HStack, Image } from "@chakra-ui/react";
-import React from "react";
+import { Box, HStack,VStack, Image,Button } from "@chakra-ui/react";
+import React, { useState } from "react";
 
 import Link from "next/link";
 
 import Head from "next/head";
 
 function Navbar() {
+  const [showDropMenu,setShowDropMenu]=useState(false);
+
   return (
     <>
       {/*
@@ -40,7 +42,7 @@ function Navbar() {
 */}
       <Box
         position={"fixed"}
-        p={["0", "10px", "10px"]}
+        p={["0", "0", "10px"]}
         bg={"white"}
         boxShadow="1px 1px 1px 1px grey"
         w="100vw"
@@ -80,19 +82,43 @@ function Navbar() {
             <NavLink title="StartBuilding" link={"/dashboard"} />
           </HStack>
 
-{/* Dummy responsive Hamburger Menu */}
+
           <Box p="2px" borderRadius={"10px"} _hover={{backgroundColor:"#DEDEDE",cursor:"pointer"}}>
-            <Link href="/">
+            <Button bg="transparent" outline={"none"} border="none" onClick={()=>setShowDropMenu(prev=>!prev)}>
               <Image
                 display={["flex", "flex", "none"]}
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/240px-Hamburger_icon.svg.png"
                 width={"6"}
                 height="6"
               />
-            </Link>
+            </Button>
 
           </Box>
+          
         </HStack>
+        {
+            showDropMenu && 
+          <VStack
+            spacing="10"
+            fontSize={"14px"}
+            fontWeight="620"
+            display={["flex","flex","none"]}
+            pb="5"
+          >
+            <NavLink title="Home" link={"/"} />
+            <NavLink title="Explore" link={"/"} />
+            <NavLink title="Pricing" link={"/"} />
+            <NavLink title="Membership" link={"/"} />
+            {/* All the Above links are Dummy redirecting to Home Page  */}
+
+            {/* This Page Will  show the Minted NFTs when the Wallet is Connected  */}
+            {/* Initially the Collection `Bored Ape` will be rendered */}
+            <NavLink title="StartBuilding" link={"/dashboard"} />
+          </VStack>
+          
+
+          }
+
       </Box>
     </>
   );
@@ -100,7 +126,7 @@ function Navbar() {
 
 const NavLink = ({ title, link }) => {
   return (
-    <Box _hover={{ textDecoration: "none" }}>
+    <Box width={["35vw","fit-content","fit-content","fit-content","fit-content"]} fontSize={["5vw","12px","14px","16px","18px"]} _hover={{ textDecoration: "none" }}>
       <Link href={link}>{title}</Link>
     </Box>
   );
