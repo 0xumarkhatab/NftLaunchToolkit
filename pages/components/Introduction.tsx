@@ -19,7 +19,7 @@ function Introduction() {
       height={"100vh"}
       overflow={"scroll"}
       p={["0","40","40"]}
-      pt={"10vh"}
+      pt={["20vh"]}
       pl={["2","10","40","40"]}
       pb={"10"}
       /*"
@@ -74,7 +74,7 @@ function Introduction() {
 
       <ButtonGroup mt="4" variant="solid" spacing="5">
         <Link href="/dashboard">
-        <Button width={["35vw","fit-content","fit-content","fit-content","fit-content"]} fontSize={["5vw","12px","14px","16px","18px"]} >Start Building</Button>
+        <Button width={["30vw","fit-content","fit-content","fit-content","fit-content"]} fontSize={["4vw","12px","14px","14px","16px"]} >Start Building</Button>
         </Link>
       </ButtonGroup>
 

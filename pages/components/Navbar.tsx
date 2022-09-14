@@ -55,7 +55,7 @@ function Navbar() {
 
           <a href="/">
             <Image
-              pl={["10", "0", "20"]}
+              pl={["10", "10", "20"]}
               src="https://nftlaunchkit.xyz/logo.svg"
               width={"25"}
               height="8"
@@ -126,7 +126,7 @@ function Navbar() {
 
 const NavLink = ({ title, link }) => {
   return (
-    <Box width={["35vw","fit-content","fit-content","fit-content","fit-content"]} fontSize={["5vw","12px","14px","16px","18px"]} _hover={{ textDecoration: "none" }}>
+    <Box width={["30vw","fit-content","fit-content","fit-content","fit-content"]} fontSize={["3.5vw","12px","14px","14px","16px"]} _hover={{ textDecoration: "none" }}>
       <Link href={link}>{title}</Link>
     </Box>
   );
