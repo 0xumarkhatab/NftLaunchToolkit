@@ -53,7 +53,7 @@ function Dashboard() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
 
   // Array for Holding BAYC NFT Collection
-  const [collection, setCollection] = useState();
+  const [collection, setCollection] = useState(null);
 
   // Fetching All NFTs from ID 0 to 20
 
@@ -78,12 +78,19 @@ function Dashboard() {
 
   return (
     // The Over All Conainer of the Dashboard
-    <Box width="100%" height="fit-cpontent" bg="black">
+    <Box pt="10" width="100%" height="fit-cpontent" bg="black">
       {/* 
     Horizontal Stack ( Flex display ) for showing Wallet Connection and Back to Website Buttons
 
 */}
-      <HStack px={"2rem"} pt="20" width="95%" justify={"space-between"}>
+      <Stack
+        direction={["column", "row", "row"]}
+        spacing={"10"}
+        px={"2rem"}
+        pt="20"
+        width="95%"
+        justify={"space-between"}
+      >
         {/* 
             Responsive Fonts
 
@@ -99,19 +106,17 @@ function Dashboard() {
         <Heading color="white" fontSize={["1rem", "2rem", "2rem"]}>
           Dashboard
         </Heading>
-        <Stack spacing={"2"} direction={["column", "column", "row"]}>
-          <ConnectButton
-            chainStatus={(e) => {
-              console.log("connected ", e);
-            }}
-          />
-          <ButtonGroup mt="4" variant="solid" spacing="5">
-            <Button>
+        <Stack display={["none","flex","flex"]} spacing={"2"} direction={["column", "column", "row"]}>
+          <Box width={["max-content","100%"]} fontSize={["10px","12px","14px"]} >
+            <ConnectButton  />
+          </Box>
+          <ButtonGroup   variant="solid" spacing="5">
+            <Button width={["20vw","100%"]} fontSize={["10px","12px","14px"]}>
               <Link href="/">Back to Website</Link>
             </Button>
           </ButtonGroup>
         </Stack>
-      </HStack>
+      </Stack>
 
       <VStack
         justify="center"
@@ -122,10 +127,11 @@ function Dashboard() {
         <Text
           bgGradient="linear(to-r,#84e1bc, #1652f0)"
           bgClip="text"
-          fontSize={["2xl", "3xl", "4xl"]}
+          fontSize={["xl", "3xl", "4xl"]}
           fontWeight="900"
           maxW={["60vw", "50vw", "40vw"]}
           lineHeight="2ch"
+          mt="10"
         >
           {/* Showing Customized Messages if Wallet is connected or not */}
           {!isWalletConnected
@@ -133,13 +139,34 @@ function Dashboard() {
             : "My Minted NFTs"}
 
           {/* If the NFT Collection is not Fetched Yet , Show Loading Screen */}
-          {collection?.length < 0 && " Loading.."}
         </Text>
+
+        <Text
+          bgGradient="linear(to-r,#84e1bc, #1652f0)"
+          bgClip="text"
+          fontSize={["2xl", "3xl", "4xl"]}
+          fontWeight="900"
+          maxW={["60vw", "50vw", "40vw"]}
+          lineHeight="2ch"
+          pt="5"
+        >
+        {! isWalletConnected && collection===null  && " Loading.."}
+
+        </Text>
+
       </VStack>
-      {isWalletConnected && (
-        <Grid p="10" templateColumns="repeat(3, 1fr)" gap={6}>
+      { collection?.length >0 && isWalletConnected && (
+        <Grid
+          p={["2","10","10"]}
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
+          gap={6}
+        >
           {collection?.map((item) => {
-            console.log("ite is ",item)
+            console.log("ite is ", item);
             return <NftItem key={"NFT " + item.id} item={item} />;
           })}
         </Grid>
@@ -148,27 +175,22 @@ function Dashboard() {
   );
 }
 
-function NftItem({item}) {
+function NftItem({ item }) {
   return (
-    <GridItem >
-      <Box
-        p={"5"}
-        border="1px solid gray"
-        justifyContent={"center"}
-        borderRadius={"10"}
-      >
+    <GridItem>
+      <Box p={["0","2","5"]}>
         <a
           target="_blank"
           href={`https://opensea.io/assets/ethereum/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/${item?.token_id}`}
         >
           <Image
-            width="25vw"
+            width={["50%","100%","100%"]}
             key={"img of " + item.id}
             src={item.image_url}
             alt={"item" + item.id}
           />
         </a>
-        <Heading pt="4" fontSize={"16px"} color={"white"}>
+        <Heading pl={["0","3vw","3vw"]} pt="4" fontSize={["12px","14px","16px"]} color={"white"}>
           #{item.id}
         </Heading>
       </Box>

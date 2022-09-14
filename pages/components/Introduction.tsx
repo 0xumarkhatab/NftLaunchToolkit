@@ -15,10 +15,14 @@ function Introduction() {
 
   return (
     <Box
-      width={"100%"}
-      height="100vh"
-      p="40"
-      /*
+      width={"100vw"}
+      height={"100vh"}
+      overflow={"scroll"}
+      p={["0","40","40"]}
+      pt={"10vh"}
+      pl={["2","10","40","40"]}
+      pb={"10"}
+      /*"
        *  Background Image
        */
       backgroundImage={`linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.7)),
@@ -31,9 +35,9 @@ function Introduction() {
       <Text
         bgGradient="linear(to-r,#84e1bc, #1652f0)"
         bgClip="text"
-        fontSize={["2xl", "3xl", "4xl"]}
+        fontSize={["2xl","2xl", "3xl", "4xl"]}
         fontWeight="900"
-        maxW={["60vw", "50vw", "40vw"]}
+        maxW={["90vw","80vw", "50vw", "40vw"]}
         lineHeight="2ch"
       >
         The best solution for no-code web3 apps.
@@ -46,7 +50,7 @@ function Introduction() {
         color="white"
         fontSize={["14px", "16px", "18px"]}
         fontWeight="normal"
-        maxW={["60vw", "50vw", "40vw"]}
+        maxW={["90vw","80vw", "50vw", "40vw"]}
         lineHeight="3ch"
       >
         With NFTLaunchKit you can create a smart contract in our dashboard with
@@ -70,7 +74,7 @@ function Introduction() {
 
       <ButtonGroup mt="4" variant="solid" spacing="5">
         <Link href="/dashboard">
-        <Button>Start Building</Button>
+        <Button width={["35vw","fit-content","fit-content","fit-content","fit-content"]} fontSize={["5vw","12px","14px","16px","18px"]} >Start Building</Button>
         </Link>
       </ButtonGroup>
 

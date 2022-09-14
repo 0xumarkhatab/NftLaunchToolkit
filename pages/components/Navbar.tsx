@@ -43,11 +43,12 @@ function Navbar() {
         p={["0", "10px", "10px"]}
         bg={"white"}
         boxShadow="1px 1px 1px 1px grey"
-        w="100%"
+        w="100vw"
+        zIndex={"10"}
       >
         {/* Cons */}
 
-        <HStack justify="space-between" w={["100%", "98%", "80vw"]}>
+        <HStack justify="space-between" w={["95%", "98%", "80vw"]}>
           {/* Displaying the ICON of Website */}
 
           <a href="/">
